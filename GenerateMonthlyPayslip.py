@@ -85,10 +85,10 @@ def main(name,salary):
 	print("\nSummary")
 	print("-----------------")
 	print("The Monthly Payslip for: %s" % name)
-	print("With a Yearly income before tax of: %s" % salary)
-	print("With a Yearly income after tax of: %s" % y_net)
-	print("With a Monthly income before tax of: %s" % monthly_income(salary))
-	print("With a Monthly income after tax of: %s" % m_net)
+	print("Gross Yearly Income: %s" % salary)
+	print("Net Yearly Income: %s" % y_net)
+	print("Gross Monthly Income: %s" % monthly_income(salary))
+	print("Net Monthly Income: %s" % m_net)
 
 
 if __name__ == "__main__":
