@@ -57,31 +57,27 @@ def tax_on_income(salary):
 		pass
 	elif y_income > 20001 and y_income < 40000:
 		y_taxed = (y_income - 20000) * 0.1
-		m_taxed = y_taxed/12
 	elif y_income > 40001 and y_income < 80000:
 		y_taxed = ((40000 - 20000) * 0.1 ) + ((y_income - 40000) * 0.2)
-		m_taxed = y_taxed/12
 	elif y_income > 80001 and y_income < 180000:
 		y_taxed = ((40000 - 20000) * 0.1 ) + ((80000 - 40000) * 0.2) + ((y_income - 80000) * 0.3)
-		m_taxed = y_taxed/12
 	elif y_income > 180001:
 		y_taxed = ((40000 - 20000) * 0.1 ) + ((80000 - 40000) * 0.2) + ((180000 - 80000) * 0.3) + ((y_income - 180000) * 0.4)
-		m_taxed = y_taxed/12
+	m_taxed = y_taxed/12
 	return y_taxed,m_taxed
 
 def net_income(y_income,y_taxed,m_income,m_taxed):
 	y_net_income = 0
 	m_net_income = 0
-	y_net_income = y_income - y_taxed
-	m_net_income = m_income - m_taxed
+	y_net_income = int(y_income) - int(y_taxed)
+	m_net_income = int(m_income) - int(m_taxed)
 	return y_net_income,m_net_income
 
 
 def main(name,salary):
 	#WRITE A SUMMARY THING HERE BEOFRE WRITE TO FILE
 	y_taxed,m_taxed = tax_on_income(salary)
-	y_net = (int(salary) - int(y_taxed))
-	m_net = (int(monthly_income(salary)) - int(m_taxed))
+	y_net,m_net = net_income(salary,y_taxed,monthly_income(salary),m_taxed)
 	print("\nSummary")
 	print("-----------------")
 	print("The Monthly Payslip for: %s" % name)
