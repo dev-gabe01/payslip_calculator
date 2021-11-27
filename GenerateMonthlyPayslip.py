@@ -1,12 +1,5 @@
-# Python 2/3 Compatibility
-from __future__ import print_function
-from builtins import input
-from builtins import str
-
-import os
 import sys
 import getopt
-import re
 import tax_module
 
 
@@ -25,18 +18,28 @@ for opt, arg in opts:
 		tax_module.help()
 	if opt in ("-n", "--name"):
 		foundName = True
-		name = arg
+		try:
+			name = str(arg)
+		except Exception as err:
+			print("Encountered an error. Are you sure the name you have put in is correct?")
+			print(err)
+			sys.exit(2)
 	if opt in ("-s", "--salary"):
 		foundSalary = True
-		salary = arg
+		try:
+			name = int(arg)
+		except Exception as err:
+			print("Encountered an error. Are you sure the salary you have put in is correct?")
+			print(err)
+			sys.exit(2)
 
 if not foundName:
     print("A name operation is required")
-    help()
+    tax_module.help()
 
 if not foundSalary:
     print("A salary is required")
-    help()
+    tax_module.help()
 
 
 if __name__ == "__main__":
