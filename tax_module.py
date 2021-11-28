@@ -12,7 +12,7 @@ def help():
 	print("Usage: \n")
 	print("-n,  --name  : Set name\n")
 	print("-s,  --salary   : Set yearly salary \n")
-	print("Example: python GenerateMonthlyPayslip.py -n Bernard Black -s 21000")
+	print("Example: python GenerateMonthlyPayslip.py -n \"Bernard Black\" -s 21000")
 	sys.exit(2)
 
 def monthly_income(salary):
@@ -26,13 +26,13 @@ def tax_on_income(salary):
 	m_taxed = 0
 	if y_income < 20001:
 		pass
-	elif y_income > 20001 and y_income < 40000:
+	elif y_income > 20000 and y_income < 40001:
 		y_taxed = (y_income - 20000) * 0.1
-	elif y_income > 40001 and y_income < 80000:
+	elif y_income > 40000 and y_income < 80001:
 		y_taxed = ((40000 - 20000) * 0.1 ) + ((y_income - 40000) * 0.2)
-	elif y_income > 80001 and y_income < 180000:
+	elif y_income > 80000 and y_income < 180001:
 		y_taxed = ((40000 - 20000) * 0.1 ) + ((80000 - 40000) * 0.2) + ((y_income - 80000) * 0.3)
-	elif y_income > 180001:
+	elif y_income > 180000:
 		y_taxed = ((40000 - 20000) * 0.1 ) + ((80000 - 40000) * 0.2) + ((180000 - 80000) * 0.3) + ((y_income - 180000) * 0.4)
 	m_taxed = y_taxed/12
 	return y_taxed,m_taxed

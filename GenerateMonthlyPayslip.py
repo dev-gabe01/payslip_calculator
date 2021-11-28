@@ -27,7 +27,7 @@ for opt, arg in opts:
 	if opt in ("-s", "--salary"):
 		foundSalary = True
 		try:
-			name = int(arg)
+			salary = int(arg)
 		except Exception as err:
 			print("Encountered an error. Are you sure the salary you have put in is correct?")
 			print(err)
@@ -45,4 +45,8 @@ if not foundSalary:
 if __name__ == "__main__":
 	if len(sys.argv) <= 3:
 		tax_module.help()
-	tax_module.main(name,salary)
+	try:
+		tax_module.main(name,salary)
+	except Exception as e:
+		print("There was an error that occured: ",e,type(e))
+		tax_module.help()
