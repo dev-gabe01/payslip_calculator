@@ -44,7 +44,6 @@ def net_income(y_income,y_taxed,m_income,m_taxed):
 	m_net_income = int(m_income) - int(m_taxed)
 	return y_net_income,m_net_income
 
-
 def main(name,salary):
 	#WRITE A SUMMARY THING HERE BEOFRE WRITE TO FILE
 	y_taxed,m_taxed = tax_on_income(salary)
@@ -56,3 +55,4 @@ def main(name,salary):
 	print("Net Yearly Income: %s" % y_net)
 	print("Gross Monthly Income: %s" % monthly_income(salary))
 	print("Net Monthly Income: %s" % m_net)
+	return m_net
